@@ -1,23 +1,42 @@
+
 main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 .container {
+    margin: 1rem;
+    position: relative;
     display: flex;
     gap: 1rem;
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     width: 500px;
     border-radius: 0.5rem;
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    background-color: antiquewhite;
+
+    &:focus {
+        border: 1px solid blue;
+    }
+
     &__title {
+        background-color: azure;
+        border-bottom: 1px solid silver;
         h3 {
             padding-left: 0.5rem;
-            border-bottom: 1px solid silver;
+        }
+
+        i{
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 25px;
+            color: red;
         }
     }
     &__content {
@@ -25,10 +44,88 @@ main {
         display: flex;
         padding: 1rem;
         flex-direction: column;
+        gap: 0.5rem;
         .todo-list-item {
+            display: flex;
             border: 1px solid silver;
+            border-radius: 0.5rem;
+            padding: 5px;
             width: 80%;
             cursor: move;
+            justify-content: space-between;
+
+            &__content {
+                p {
+                    font-size: 1rem;
+                }
+            }
+
+            &__actions {
+                flex-basis: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+            }
         }
+    }
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgb(18, 76, 151);
+    color: white;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    &:hover {
+        opacity: 0.8;
+    }   
+    &--easy {
+        background-color: rgb(33, 128, 80);
+    }
+    &--medium {
+        background-color: rgb(58, 48, 151);
+    }
+    &--hard {
+        background-color: rgb(124, 7, 79);
+    }
+
+    &--forward {
+        margin-left: 5px;
+        background-color: green;
+    }
+    &--back {
+        margin-left: 5px;
+        background-color: rgb(29, 76, 107);
+    }
+
+    &--delete {
+        margin-left: 5px;
+        background-color: rgb(209, 50, 22);
+    }
+}
+
+input, select {
+    position: relative;
+    outline: none;
+    padding: 7px;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+
+    &:focus {
+        border: 1px solid rgb(175, 97, 7);
+        outline: 1px solid rgb(175, 97, 7);
+    }
+}
+
+label {
+    position: absolute;
+    top: 40px;
+    z-index: 2;
+    color: rgb(161, 39, 39);
+    font-weight: bold;
+
+    &.select {
+        left: 200px
     }
 }

@@ -1,13 +1,15 @@
 <main>
   <section class="container">
-    <input type="text"  [(ngModel)]="task_title"/> 
-    <select name="difficulty" id="difficulty" [(ngModel)]="selectedOption">
+    <label for="task" *ngIf="label_for_task">please fill the input!</label>
+    <input type="text" name="task" [(ngModel)]="task_title" required />
+    <label for="task" *ngIf="label_for_select" class="select">please select item!</label>
+    <select name="difficulty" id="difficulty" [(ngModel)]="selectedOption" >
       <option  selected [ngValue]="''" hidden>selected</option>
       <option value="easy">easy</option>
       <option value="medium">medium</option>
       <option value="hard">hard</option>
     </select>
-    <button type="button" (click)="addTask(task_title, selectedOption)">
+    <button type="submit" (click)="addTask(task_title, selectedOption)" class="btn">
       add task
     </button>
   </section>
@@ -19,16 +21,18 @@
       </div>
       <div class="card__content">
         <ng-container *ngFor="let item of todo_list; let i = index">
-          <div class="todo-list-item" *ngIf="todo_list.length; else empty" draggable=true>
-            <div>
+          <div class="todo-list-item" draggable=true>
+            <div class="todo-list-item__content">
              <p>{{i+1}}. {{item.title}}</p>
-             <button>{{item.difficulty}}</button>
+             <button class="btn" [ngClass]="getStyle(item.difficulty)">{{item.difficulty}}</button>
             </div>
-            <div>
-              <button (click)="moveItem(i)">></button>
-              <button>X</button>
+            <div class="todo-list-item__actions">
+              <button (click)="moveItem(i, todo_list)" class="btn btn--forward">></button>
+              <button (click)="deleteItem(i)" class="btn btn--delete">X</button>
             </div>
          </div>
+        </ng-container>
+        <ng-container *ngIf="todo_list.length; else empty">
         </ng-container>
       </div>
     </div>
@@ -42,13 +46,15 @@
           <div class="todo-list-item" *ngIf="inProgres_list.length; else empty">
             <div>
              <p>{{i+1}}. {{item.title}}</p>
-             <button>{{item.difficulty}}</button>
+             <button class="btn" [ngClass]="getStyle(item.difficulty)">{{item.difficulty}}</button>
             </div>
             <div>
-              <button>></button>
-              <button>X</button>
+              <button (click)="moveItemBack(i, inProgres_list)" class="btn btn--back"><</button>
+              <button (click)="moveItem(i, inProgres_list)" class="btn btn--forward">></button>
             </div>
          </div>
+        </ng-container>
+        <ng-container *ngIf="inProgres_list.length; else empty">
         </ng-container>
       </div>
     </div>
@@ -62,13 +68,14 @@
           <div class="todo-list-item" *ngIf="done_list.length; else empty">
             <div>
              <p>{{i+1}}. {{item.title}}</p>
-             <button>{{item.difficulty}}</button>
+             <button class="btn" [ngClass]="getStyle(item.difficulty)">{{item.difficulty}}</button>
             </div>
             <div>
-              <button>></button>
-              <button>X</button>
+              <button (click)="moveItemBack(i, done_list)" class="btn btn--back"><</button>
             </div>
          </div>
+        </ng-container>
+        <ng-container *ngIf="done_list.length; else empty">
         </ng-container>
       </div>
     </div>
@@ -78,7 +85,3 @@
 <ng-template #empty>
     list is empty
 </ng-template>
-<ng-container>   
-  <div *ngIf="false; else cc">content</div>
-</ng-container> 
-<ng-template #cc> else piroba </ng-template>
