@@ -104,9 +104,9 @@ export class AppComponent {
 
   getStyle(difficulty: string){
     return {
-      'btn--easy':  difficulty == 'easy',
-      'btn--medium':  difficulty == 'medium',
-      'btn--hard':  difficulty == 'hard',
+      'btn--easy':  difficulty == Difficulty.easy,
+      'btn--medium':  difficulty == Difficulty.medium,
+      'btn--hard':  difficulty == Difficulty.hard,
     }
   }
 }

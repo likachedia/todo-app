@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Inter:wght@400;600;700&family=Manrope:wght@200;300;500;800&display=swap');
 img {
     max-width: 100%;
     height: auto;
@@ -24,6 +25,7 @@ main {
 .card {
     display: flex;
     flex-direction: column;
+    height: min-content;
     flex: 1;
     border-radius: 0.5rem;
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
@@ -74,7 +76,8 @@ main {
 
             &__content {
                 p {
-                    font-size: 1rem;
+                    font-size: 1.2rem;
+                    font-family: 'Hubballi', cursive;
                 }
             }
 
@@ -142,14 +145,25 @@ label {
     z-index: 2;
     color: rgb(161, 39, 39);
     font-weight: bold;
+    font-size: 12px;
+    font-family: 'Manrope', sans-serif;
 
     &.select {
-        left: 200px
+        left: 200px;
     }
 }
 
 @media only screen and (max-width: 750px){
     .container {
         flex-direction: column;
+    }
+
+    label {
+        top: -20px;
+
+        &.select {
+            left: 200px;
+            top: 80px;
+        }
     }
 }

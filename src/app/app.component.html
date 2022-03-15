@@ -45,11 +45,11 @@
       <div class="card__content">
         <ng-container *ngFor="let item of inProgres_list; let i = index">
           <div class="todo-list-item" *ngIf="inProgres_list.length; else empty">
-            <div>
+            <div class="todo-list-item__content">
              <p>{{i+1}}. {{item.title}}</p>
              <button class="btn" [ngClass]="getStyle(item.difficulty)">{{item.difficulty}}</button>
             </div>
-            <div>
+            <div class="todo-list-item__actions">
               <button (click)="moveItemBack(i, inProgres_list)" class="btn btn--back"><</button>
               <button (click)="moveItem(i, inProgres_list)" class="btn btn--forward">></button>
             </div>
@@ -67,11 +67,11 @@
       <div class="card__content">
         <ng-container *ngFor="let item of done_list; let i = index">
           <div class="todo-list-item" *ngIf="done_list.length; else empty">
-            <div>
+            <div class="todo-list-item__content">
              <p>{{i+1}}. {{item.title}}</p>
              <button class="btn" [ngClass]="getStyle(item.difficulty)">{{item.difficulty}}</button>
             </div>
-            <div>
+            <div class="todo-list-item__actions">
               <button (click)="moveItemBack(i, done_list)" class="btn btn--back"><</button>
             </div>
          </div>
