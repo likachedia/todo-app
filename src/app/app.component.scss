@@ -1,4 +1,7 @@
-
+img {
+    max-width: 100%;
+    height: auto;
+}
 main {
     display: flex;
     flex-direction: column;
@@ -26,8 +29,13 @@ main {
     }
 
     &__title {
+        display: flex;
         background-color: azure;
         border-bottom: 1px solid silver;
+        img {
+            width: 1rem;
+            height: 1rem;
+        }
         h3 {
             padding-left: 0.5rem;
         }
@@ -37,6 +45,9 @@ main {
             font-weight: 900;
             font-size: 25px;
             color: red;
+            text-align: center;
+            align-self: center;
+            margin-left: 1rem;
         }
     }
     &__content {
@@ -127,5 +138,11 @@ label {
 
     &.select {
         left: 200px
+    }
+}
+
+@media only screen and (max-width: 750px){
+    .container {
+        flex-direction: column;
     }
 }
