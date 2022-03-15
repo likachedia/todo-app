@@ -31,7 +31,8 @@ main {
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
+    
 
     &:focus {
         border: 1px solid blue;
@@ -39,7 +40,8 @@ main {
 
     &__title {
         display: flex;
-        background-color: azure;
+        background-color: rgb(42, 98, 172);
+        color: white;
         border-bottom: 1px solid silver;
         img {
             width: 1rem;
@@ -57,6 +59,7 @@ main {
             text-align: center;
             align-self: center;
             margin-left: 1rem;
+            filter: invert(100%) sepia(12%) saturate(0%) hue-rotate(58deg) brightness(104%) contrast(101%);
         }
     }
     &__content {

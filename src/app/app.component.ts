@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 export interface Task {
   title: string,
   difficulty: string,
@@ -36,6 +37,7 @@ export class AppComponent {
   label_for_select = false;
   selectedOption: string = "";
   task_title: string = "";
+
   parseData(key: string){
     return JSON.parse(localStorage.getItem(key)!) ? JSON.parse(localStorage.getItem(key)!) : [];
   }
@@ -43,6 +45,7 @@ export class AppComponent {
   saveToLocalStorage(key:string, value: Task[]) {
     localStorage.setItem(key, JSON.stringify(value));
   }
+
   addTask(title: string, difficulty: string) {
     if(title == '') {
       this. label_for_task = true;
