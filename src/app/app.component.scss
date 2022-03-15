@@ -105,18 +105,18 @@ main {
         opacity: 0.8;
     }   
     &--easy {
-        background-color: rgb(33, 128, 80);
+        background-color: rgb(7, 151, 79);
     }
     &--medium {
-        background-color: rgb(58, 48, 151);
+        background-color: rgb(206, 138, 12);
     }
     &--hard {
-        background-color: rgb(124, 7, 79);
+        background-color: rgb(211, 17, 43);
     }
 
     &--forward {
         margin-left: 5px;
-        background-color: green;
+        background-color: rgb(7, 151, 79);
     }
     &--back {
         margin-left: 5px;
