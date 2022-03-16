@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Inter:wght@400;600;700&family=Manrope:wght@200;300;500;800&display=swap');
+
+.some {
+    font-size: large;
+    color: aqua;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -30,9 +36,7 @@ main {
     border-radius: 0.5rem;
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
     -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
-    // background-color: antiquewhite;
-    
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);    
 
     &:focus {
         border: 1px solid blue;
@@ -68,66 +72,9 @@ main {
         padding: 1rem;
         flex-direction: column;
         gap: 0.5rem;
-        .todo-list-item {
-            display: flex;
-            border: 1px solid silver;
-            border-radius: 0.5rem;
-            padding: 5px;
-            width: 80%;
-            cursor: move;
-            justify-content: space-between;
-
-            &__content {
-                p {
-                    font-size: 1.2rem;
-                    font-family: 'Hubballi', cursive;
-                }
-            }
-
-            &__actions {
-                flex-basis: 30%;
-                display: flex;
-                align-items: center;
-                justify-content: end;
-            }
-        }
     }
 }
 
-.btn {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: rgb(18, 76, 151);
-    color: white;
-    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
-    &:hover {
-        opacity: 0.8;
-    }   
-    &--easy {
-        background-color: rgb(7, 151, 79);
-    }
-    &--medium {
-        background-color: rgb(206, 138, 12);
-    }
-    &--hard {
-        background-color: rgb(211, 17, 43);
-    }
-
-    &--forward {
-        margin-left: 5px;
-        background-color: rgb(7, 151, 79);
-    }
-    &--back {
-        margin-left: 5px;
-        background-color: rgb(29, 76, 107);
-    }
-
-    &--delete {
-        margin-left: 5px;
-        background-color: rgb(209, 50, 22);
-    }
-}
 
 input, select {
     position: relative;

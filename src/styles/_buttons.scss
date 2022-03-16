@@ -1,0 +1,41 @@
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgb(18, 76, 151);
+    color: white;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+    &:hover {
+        opacity: 0.8;
+    }   
+    &--easy {
+        background-color: rgb(7, 151, 79);
+    }
+    &--medium {
+        background-color: rgb(206, 138, 12);
+    }
+    &--hard {
+        background-color: rgb(211, 17, 43);
+    }
+
+    &--forward {
+        margin-left: 5px;
+        background-color: rgb(7, 151, 79);
+    }
+    &--back {
+        margin-left: 5px;
+        background-color: rgb(29, 76, 107);
+        color: white;
+
+        &::before {
+            font-family: "Font Awesome 5 Free";
+            color: white;
+            font-size: 16px;
+        }
+    }
+
+    &--delete {
+        margin-left: 5px;
+        background-color: rgb(209, 50, 22);
+    }
+}

@@ -1,0 +1,23 @@
+.todo-list-item {
+    display: flex;
+    border: 1px solid silver;
+    border-radius: 0.5rem;
+    padding: 5px;
+    width: 80%;
+    cursor: move;
+    justify-content: space-between;
+
+    &__content {
+        p {
+            font-size: 1.2rem;
+            font-family: 'Hubballi', cursive;
+        }
+    }
+
+    &__actions {
+        flex-basis: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+}

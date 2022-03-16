@@ -1,0 +1,33 @@
+<div class="todo-list-item" draggable="true">
+  <div class="todo-list-item__content">
+    <p>{{ index + 1 }}. {{ task.title }}</p>
+    <button class="btn" [ngClass]="getStyle(task.difficulty)">
+      {{ task.difficulty }}
+    </button>
+  </div>
+  <div class="todo-list-item__actions">
+    <button
+        id="backward"
+        (click)="moveItemBack(index, task)"
+        class="btn btn--back"
+        *ngIf="task.state != state.todo"
+    >
+    <i class="fa-solid fa-trash-can"></i>
+    </button>
+    <button
+      id="forward"
+      (click)="moveItem(index, task)"
+      class="btn btn--forward"
+      
+    >
+       >
+    </button>
+    <button
+      (click)="deleteItem(index)"
+      class="btn btn--delete"
+      *ngIf="task.state == state.todo"
+    >
+      X
+    </button>
+  </div>
+</div>
