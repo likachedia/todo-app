@@ -12,6 +12,7 @@ export enum State {
   done = 'Done'
 }
 
+
 export enum Difficulty {
   easy = 'easy',
   medium = 'medium',
@@ -37,7 +38,8 @@ export class AppComponent {
   label_for_select = false;
   selectedOption: string = "";
   task_title: string = "";
-
+  difficulty = Difficulty;
+  
   parseData(key: string){
     return JSON.parse(localStorage.getItem(key)!) ? JSON.parse(localStorage.getItem(key)!) : [];
   }
@@ -112,4 +114,5 @@ export class AppComponent {
       'btn--hard':  difficulty == Difficulty.hard,
     }
   }
+
 }
