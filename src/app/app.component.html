@@ -1,25 +1,6 @@
 <main>
   <h1>ToDo App</h1>
-  <section class="container">
-    <label for="task" *ngIf="label_for_task">please fill the input!</label>
-    <input type="text" name="task" [(ngModel)]="task_title" required />
-    <label for="task" *ngIf="label_for_select" class="select"
-      >please select item!</label
-    >
-    <select name="difficulty" id="difficulty" [(ngModel)]="selectedOption">
-      <option selected [ngValue]="''" hidden>select</option>
-      <option [ngValue]="difficulty.easy">{{ difficulty.easy }}</option>
-      <option [ngValue]="difficulty.medium">{{ difficulty.medium }}</option>
-      <option [ngValue]="difficulty.hard">{{ difficulty.hard }}</option>
-    </select>
-    <button
-      type="submit"
-      (click)="addTask(task_title, selectedOption!)"
-      class="btn"
-    >
-      add task
-    </button>
-  </section>
+  <app-form (taskInfo)="taskHandler($event)"> </app-form>
   <section class="container">
     <div class="card">
       <div class="card__title">
@@ -28,12 +9,13 @@
       </div>
       <div class="card__content">
         <ng-container *ngFor="let item of todo_list; let i = index">
-          <app-task [task]="item" [index]="i" 
-          (delete)="deleteTaskHandler($event)"
-          (item)="moveItemHandler($event)"
-          (itemBack)="moveItemBackHandler($event)"
+          <app-task
+            [task]="item"
+            [index]="i"
+            (delete)="deleteTaskHandler($event)"
+            (item)="moveItemHandler($event)"
+            (itemBack)="moveItemBackHandler($event)"
           >
-
           </app-task>
         </ng-container>
         <ng-container *ngIf="todo_list.length; else empty"> </ng-container>
@@ -41,17 +23,18 @@
     </div>
     <div class="card">
       <div class="card__title">
-        <i><img src="../assets/bars-progress-solid.svg" alt="bars-icon"/></i>
+        <i><img src="../assets/bars-progress-solid.svg" alt="bars-icon" /></i>
         <h3>In Progres</h3>
       </div>
       <div class="card__content">
         <ng-container *ngFor="let item of inProgres_list; let i = index">
-          <app-task [task]="item" [index]="i" 
-          (delete)="deleteTaskHandler($event)"
-          (item)="moveItemHandler($event)"
-          (itemBack)="moveItemBackHandler($event)"
+          <app-task
+            [task]="item"
+            [index]="i"
+            (delete)="deleteTaskHandler($event)"
+            (item)="moveItemHandler($event)"
+            (itemBack)="moveItemBackHandler($event)"
           >
-
           </app-task>
         </ng-container>
         <ng-container *ngIf="inProgres_list.length; else empty"> </ng-container>
@@ -64,10 +47,12 @@
       </div>
       <div class="card__content">
         <ng-container *ngFor="let item of done_list; let i = index">
-          <app-task [task]="item" [index]="i" 
-          (delete)="deleteTaskHandler($event)"
-          (item)="moveItemHandler($event)"
-          (itemBack)="moveItemBackHandler($event)"
+          <app-task
+            [task]="item"
+            [index]="i"
+            (delete)="deleteTaskHandler($event)"
+            (item)="moveItemHandler($event)"
+            (itemBack)="moveItemBackHandler($event)"
           >
           </app-task>
         </ng-container>

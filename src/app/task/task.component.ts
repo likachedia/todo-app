@@ -1,15 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {Difficulty, Task, State} from '../app.component';
-
-interface Item  {
-  index: number,
-  task: Task
-}
+import { Item, Difficulty, Task, State } from '../scripts/interface';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
@@ -18,12 +13,11 @@ export class TaskComponent implements OnInit {
   @Output() item: EventEmitter<Item> = new EventEmitter();
   @Output() itemBack: EventEmitter<Item> = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   state = State;
-  
+
   deleteItem(i: number) {
     this.delete.emit(i);
   }
@@ -49,6 +43,4 @@ export class TaskComponent implements OnInit {
       'btn--hard': difficulty == Difficulty.hard,
     };
   }
-
-
 }

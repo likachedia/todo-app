@@ -1,0 +1,20 @@
+<section class="container">
+  <label for="task" *ngIf="label_for_task">please fill the input!</label>
+  <input type="text" name="task" [(ngModel)]="task_title" required />
+  <label for="task" *ngIf="label_for_select" class="select"
+    >please select item!</label
+  >
+  <select name="difficulty" id="difficulty" [(ngModel)]="selectedOption">
+    <option selected [ngValue]="''" hidden>select</option>
+    <option [ngValue]="difficulty.easy">{{ difficulty.easy }}</option>
+    <option [ngValue]="difficulty.medium">{{ difficulty.medium }}</option>
+    <option [ngValue]="difficulty.hard">{{ difficulty.hard }}</option>
+  </select>
+  <button
+    type="submit"
+    (click)="addTask(task_title, selectedOption!)"
+    class="btn"
+  >
+    add task
+  </button>
+</section>
