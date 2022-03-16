@@ -26,12 +26,6 @@
         margin-left: 5px;
         background-color: rgb(29, 76, 107);
         color: white;
-
-        &::before {
-            font-family: "Font Awesome 5 Free";
-            color: white;
-            font-size: 16px;
-        }
     }
 
     &--delete {

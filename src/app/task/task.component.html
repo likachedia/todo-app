@@ -7,20 +7,20 @@
   </div>
   <div class="todo-list-item__actions">
     <button
-        id="backward"
-        (click)="moveItemBack(index, task)"
-        class="btn btn--back"
-        *ngIf="task.state != state.todo"
+      id="backward"
+      (click)="moveItemBack(index, task)"
+      class="btn btn--back"
+      *ngIf="task.state != state.todo"
     >
-    <i class="fa-solid fa-trash-can"></i>
+      <
     </button>
     <button
       id="forward"
       (click)="moveItem(index, task)"
       class="btn btn--forward"
-      
+      *ngIf="task.state != state.done"
     >
-       >
+      >
     </button>
     <button
       (click)="deleteItem(index)"

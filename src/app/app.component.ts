@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export interface Task {
   title: string;
-  difficulty: string;
-  state?: string;
+  difficulty: Difficulty;
+  state?: State;
 }
 
 export enum State {
@@ -33,7 +33,7 @@ export class AppComponent {
   done_list: Task[] = this.parseData('done_list');
   label_for_task = false;
   label_for_select = false;
-  selectedOption: string = '';
+  selectedOption: Difficulty | undefined = undefined;
   task_title: string = '';
   difficulty = Difficulty;
 
@@ -47,13 +47,13 @@ export class AppComponent {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
-  addTask(title: string, difficulty: string) {
+  addTask(title: string, difficulty: Difficulty) {
     if (title == '') {
       this.label_for_task = true;
       return;
     }
 
-    if (difficulty == "") {
+    if (difficulty == null) {
       this.label_for_select = true;
       return;
     }
@@ -66,7 +66,7 @@ export class AppComponent {
     };
     this.todo_list.push(task);
     this.saveToLocalStorage('todo_list', this.todo_list);
-    this.selectedOption = '';
+    this.selectedOption = undefined;
     this.task_title = '';
   }
 
@@ -84,18 +84,6 @@ export class AppComponent {
     this.saveToLocalStorage('done_list', this.done_list);
     this.saveToLocalStorage('inProgres_list', this.inProgres_list);
   }
-  moveItemHandler(item: any) {
-    this.moveItem(item.index, item.task);
-  }
-
-  moveItemBackHandler(item: any) {
-    this.moveItemBack(item.index, item.task);
-  }
-
-  deleteTaskHandler (i: number) {
-    this.todo_list.splice(i, 1);
-    this.saveToLocalStorage('todo_list', this.todo_list);
-  }
 
   moveItemBack(i: number, task: Task) {
     if (task.state == State.inProgres) {
@@ -111,6 +99,19 @@ export class AppComponent {
     this.saveToLocalStorage('todo_list', this.todo_list);
     this.saveToLocalStorage('done_list', this.done_list);
     this.saveToLocalStorage('inProgres_list', this.inProgres_list);
+  }
+
+  moveItemHandler(item: any) {
+    this.moveItem(item.index, item.task);
+  }
+
+  moveItemBackHandler(item: any) {
+    this.moveItemBack(item.index, item.task);
+  }
+
+  deleteTaskHandler (i: number) {
+    this.todo_list.splice(i, 1);
+    this.saveToLocalStorage('todo_list', this.todo_list);
   }
 
   getStyle(difficulty: string) {

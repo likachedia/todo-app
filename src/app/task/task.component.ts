@@ -23,6 +23,7 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
   }
   state = State;
+  
   deleteItem(i: number) {
     this.delete.emit(i);
   }
@@ -33,12 +34,14 @@ export class TaskComponent implements OnInit {
       task: task,
     });
   }
+
   moveItemBack(i: number, task: Task) {
     this.itemBack.emit({
       index: i,
       task: task,
     });
   }
+
   getStyle(difficulty: string) {
     return {
       'btn--easy': difficulty == Difficulty.easy,
