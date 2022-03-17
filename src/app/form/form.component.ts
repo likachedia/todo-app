@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { TaskInfo, Difficulty } from '../scripts/interface';
+import { TaskInfo, Difficulty } from '../../scripts/interface';
 
 @Component({
   selector: 'app-form',

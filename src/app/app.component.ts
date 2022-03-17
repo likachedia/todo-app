@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Item, Task, State, Difficulty, TaskInfo } from './scripts/interface';
+import { Item, Task, State, Difficulty, TaskInfo } from '../scripts/interface';
 
 @Component({
   selector: 'app-root',

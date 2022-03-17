@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Item, Difficulty, Task, State } from '../scripts/interface';
+import { Item, Difficulty, Task, State } from '../../scripts/interface';
 
 @Component({
   selector: 'app-task',
@@ -10,7 +10,7 @@ export class TaskComponent implements OnInit {
   @Input() task!: Task;
   @Input() index!: number;
   @Output() delete: EventEmitter<number> = new EventEmitter();
-  @Output() item: EventEmitter<Item> = new EventEmitter();
+  @Output() itemForward: EventEmitter<Item> = new EventEmitter();
   @Output() itemBack: EventEmitter<Item> = new EventEmitter();
 
   constructor() {}
@@ -23,7 +23,7 @@ export class TaskComponent implements OnInit {
   }
 
   moveItem(i: number, task: Task) {
-    this.item.emit({
+    this.itemForward.emit({
       index: i,
       task: task,
     });

@@ -1,5 +1,5 @@
 <main>
-  <h1>ToDo App</h1>
+  <h1>{{title | uppercase }}</h1>
   <app-form (taskInfo)="taskHandler($event)"> </app-form>
   <section class="container">
     <div class="card">
@@ -13,7 +13,7 @@
             [task]="item"
             [index]="i"
             (delete)="deleteTaskHandler($event)"
-            (item)="moveItemHandler($event)"
+            (itemForward)="moveItemHandler($event)"
             (itemBack)="moveItemBackHandler($event)"
           >
           </app-task>
@@ -32,7 +32,7 @@
             [task]="item"
             [index]="i"
             (delete)="deleteTaskHandler($event)"
-            (item)="moveItemHandler($event)"
+            (itemForward)="moveItemHandler($event)"
             (itemBack)="moveItemBackHandler($event)"
           >
           </app-task>
@@ -51,7 +51,7 @@
             [task]="item"
             [index]="i"
             (delete)="deleteTaskHandler($event)"
-            (item)="moveItemHandler($event)"
+            (itemForward)="moveItemHandler($event)"
             (itemBack)="moveItemBackHandler($event)"
           >
           </app-task>
