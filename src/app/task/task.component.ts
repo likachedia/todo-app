@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Item, Difficulty, Task, State } from '../../scripts/interface';
+import { Item, Difficulty, Task, State, Direction } from '../../scripts/interface';
 
 @Component({
   selector: 'app-task',
@@ -18,14 +18,14 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {}
 
   state = State;
-  btnForward = 'Forward';
-  btnBackward = 'Backward'
+  btnForward = Direction.Forward;
+  btnBackward = Direction.Backward;
 
   deleteItem(i: number) {
     this.delete.emit(i);
   }
 
-  moveItem(i: number, task: Task, direciton: string) {
+  moveItem(i: number, task: Task, direciton: Direction) {
     this.itemForward.emit({
       direction: direciton,
       index: i,
@@ -33,13 +33,13 @@ export class TaskComponent implements OnInit {
     });
   }
 
-  moveItemBack(i: number, task: Task, direciton: string) {
-    this.itemBack.emit({
-      direction: direciton,
-      index: i,
-      task: task,
-    });
-  }
+  // moveItemBack(i: number, task: Task, direciton: Direction) {
+  //   this.itemBack.emit({
+  //     direction: direciton,
+  //     index: i,
+  //     task: task,
+  //   });
+  // }
 
   getStyle(difficulty: string) {
     return {

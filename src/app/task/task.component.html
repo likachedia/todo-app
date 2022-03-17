@@ -8,11 +8,11 @@
   <div class="todo-list-item__actions">
     <button
       id="backward"
-      (click)="moveItemBack(index, task, btnBackward)"
+      (click)="moveItem(index, task, btnBackward)"
       class="btn btn--back"
       *ngIf="task.state != state.todo"
     >
-    <i class="fa fa-check"></i>
+    <i class="fa fa-backward"></i>
     </button>
     <button
       id="forward"
@@ -20,14 +20,14 @@
       class="btn btn--forward"
       *ngIf="task.state != state.done"
     >
-      >
+    <i class="fa fa-forward"></i>
     </button>
     <button
       (click)="deleteItem(index)"
       class="btn btn--delete"
       *ngIf="task.state == state.todo"
     >
-      X
+    <i class="fa fa-trash"></i>
     </button>
   </div>
 </div>

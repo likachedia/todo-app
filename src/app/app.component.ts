@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Item, Task, State, Difficulty, TaskInfo } from '../scripts/interface';
-
+import { Item, Task, State, Difficulty, TaskInfo, Direction } from '../scripts/interface';
+ 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -68,7 +68,7 @@ export class AppComponent {
   }
 
   moveItemHandler(item: Item) {
-      if(item.direction == "Forward") {
+      if(item.direction == Direction.Forward) {
         this.moveItem(item.index, item.task);
       } else {
         this.moveItemBack(item.index, item.task);

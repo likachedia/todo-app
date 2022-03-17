@@ -22,7 +22,12 @@ export interface TaskInfo {
 }
 
 export interface Item {
-  direction: string,
+  direction: Direction,
   index: number;
   task: Task;
+}
+
+export enum Direction {
+  Forward,
+  Backward,
 }
