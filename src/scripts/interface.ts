@@ -22,6 +22,7 @@ export interface TaskInfo {
 }
 
 export interface Item {
+  direction: string,
   index: number;
   task: Task;
 }

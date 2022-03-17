@@ -14,8 +14,9 @@
             [index]="i"
             (delete)="deleteTaskHandler($event)"
             (itemForward)="moveItemHandler($event)"
-            (itemBack)="moveItemBackHandler($event)"
+
           >
+        
           </app-task>
         </ng-container>
         <ng-container *ngIf="todo_list.length; else empty"> </ng-container>
@@ -33,8 +34,9 @@
             [index]="i"
             (delete)="deleteTaskHandler($event)"
             (itemForward)="moveItemHandler($event)"
-            (itemBack)="moveItemBackHandler($event)"
+            
           >
+          
           </app-task>
         </ng-container>
         <ng-container *ngIf="inProgres_list.length; else empty"> </ng-container>
@@ -52,8 +54,9 @@
             [index]="i"
             (delete)="deleteTaskHandler($event)"
             (itemForward)="moveItemHandler($event)"
-            (itemBack)="moveItemBackHandler($event)"
+         
           >
+          
           </app-task>
         </ng-container>
         <ng-container *ngIf="done_list.length; else empty"> </ng-container>
@@ -62,3 +65,4 @@
   </section>
 </main>
 <ng-template #empty> list is empty </ng-template>
+<!-- (itemBack)="moveItemBackHandler($event)" -->

@@ -5,7 +5,7 @@
     >please select item!</label
   >
   <select name="difficulty" id="difficulty" [(ngModel)]="selectedOption">
-    <option selected [ngValue]="''" hidden>select</option>
+    <option selected [ngValue]="undefined" hidden>select</option>
     <option [ngValue]="difficulty.easy">{{ difficulty.easy}}</option>
     <option [ngValue]="difficulty.medium">{{ difficulty.medium}}</option>
     <option [ngValue]="difficulty.hard">{{ difficulty.hard}}</option>

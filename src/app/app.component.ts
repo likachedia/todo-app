@@ -68,7 +68,11 @@ export class AppComponent {
   }
 
   moveItemHandler(item: Item) {
-    this.moveItem(item.index, item.task);
+      if(item.direction == "Forward") {
+        this.moveItem(item.index, item.task);
+      } else {
+        this.moveItemBack(item.index, item.task);
+      }    
   }
 
   moveItemBackHandler(item: Item) {

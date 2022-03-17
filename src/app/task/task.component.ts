@@ -16,21 +16,26 @@ export class TaskComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
   state = State;
+  btnForward = 'Forward';
+  btnBackward = 'Backward'
 
   deleteItem(i: number) {
     this.delete.emit(i);
   }
 
-  moveItem(i: number, task: Task) {
+  moveItem(i: number, task: Task, direciton: string) {
     this.itemForward.emit({
+      direction: direciton,
       index: i,
       task: task,
     });
   }
 
-  moveItemBack(i: number, task: Task) {
+  moveItemBack(i: number, task: Task, direciton: string) {
     this.itemBack.emit({
+      direction: direciton,
       index: i,
       task: task,
     });
